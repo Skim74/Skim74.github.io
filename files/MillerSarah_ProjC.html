@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sarah Miller Proj C</title>
+     <style>
+      /* make the body fill the window */
+      html, body {
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      /* make any canvas fill its container */
+      canvas {
+        width: 78%;
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body onload="main()" onresize="resizeCanvas(canvas,gl)">
+    <canvas id="webgl" width="1000" height="1000">
+
+    Please use a browser that supports "canvas"
+    </canvas>
+  <div style="display: inline-block; width:20%; vertical-align: top;"><h2>USER INSTRUCTIONS</h2>
+    You are wearing a headlight! While it is on, there will always be light in the direction you are looking. To turn it on/off, press "h".<br>
+    <br>To navigate the scene, use the arrow keys<br>
+  To angle the camera, use the WASD keys<br><br>
+  Click and drag to manipulate the star <br>
+  Press O and P to remove and add flower petals
+  <br><br>
+    <b>You can control a light!</b><br> Just use these boxes, and the space bar to flip the light on and off entirely!<br>
+  <b>Ambient light:</b><br>
+            R: <input type="text" id="ambientR" value="0.2" size="6"/>
+            G: <input type="text" id="ambientG" value="0.2" size="6"/>
+            B: <input type="text" id="ambientB" value="0.2" size="6"/>
+<br>
+<b>Light position:</b><br>
+            X: <input type="text" id="lightDirectionX" value="1.25" size="6"/>
+            Y: <input type="text" id="lightDirectionY" value="2.25" size="6"/>
+            Z: <input type="text" id="lightDirectionZ" value="-1.0" size="6"/>
+<br>
+            <b>Diffuse light color:</b><br>
+            R: <input type="text" id="directionalR" value="0.8" size="6"/>
+            G: <input type="text" id="directionalG" value="0.8" size="6"/>
+            B: <input type="text" id="directionalB" value="0.8" size="6"/>
+<br>
+            <b>Specular light color:</b><br>
+            R: <input type="text" id="specularR" value="0.8" size="6"/>
+            G: <input type="text" id="specularG" value="0.8" size="6"/>
+            B: <input type="text" id="specularB" value="0.8" size="6"/>
+	    
+  <br><br>
+  To swap between classic "Blin-Phong" lighting, and crazy noir inspired lighting, press "l".<br><br>
+  
+  To swap between different "materials" and classic individually colored vertices, press "m".
+  
+  <br><br>
+
+  
+  </div>
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/cuon-matrix-quat.js"></script>
+    <script src="MillerSarah_ProjC.js"></script>
+  </body>
+</html>
