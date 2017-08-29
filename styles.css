@@ -1,3 +1,16 @@
 img {
     width: 100%;
 }
+.row{display:flex;flex-wrap:wrap;width:100%;}
+.equal-heights{
+		flex:1 0 23%;
+		margin:1%;
+		background:red;
+		word-wrap:break-word;
+}
+@media screen and (max-width:800px){
+	.equal-heights{flex:1 0 48%;}
+}
+@media screen and (max-width:500px){
+	.equal-heights{flex:1 0 98%;}
+}
