@@ -8,29 +8,51 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
-    <link href="https://v4-alpha.getbootstrap.com/examples/grid/grid.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
 
         <div class="container">
           <div class="row">
-            <div class="col-md-8">
-              <center><h1> Sarah Miller </h1>
-                <p class="lead">
+            <div class="col-sm-12 col-xs-12 hidden-md-up">
+              <div class="row hidden-md-up">
+                <img src="headshot.jpg" class="img-circle" />
+              </div>
+            </div>
+            <div class="col-md-8 col-sm-12">
+              <center><h1 class="display-4"> Sarah Miller </h1>
+                <p>
                   Fullstack Web Developer <br>
                   Los Angeles, California <br>
                   Northwestern University
                   B.A. Computer Science, 2016
                 </p></center>
-              <div class="col-md-6">
-                <a href="SMiller_FormattedResume_Aug2017.pdf"> Check out my resume! </a>
+                <hr>
+              <div class="row social">
+                <div class="col-md-3 col-sm-4 col-xs-4">
+                  <a href="SMiller_FormattedResume_Aug2017.pdf">
+                    <img src="resume-icon-png-19028.png" class="icon" /> <br>
+                    <p class="caption"> Resume </p>
+                  </a>
+                </div>
+                <div class="col-md-1 hidden-sm-down"></div>
+                <div class="col-md-3 col-sm-4 col-xs-4">
+                  <a href="https://www.linkedin.com/in/sarah-miller-31003082">
+                    <img src="linkedin.svg" class="icon"  /> <br>
+                    <p class="caption"> LinkedIn </p>
+                  </a>
+                </div>
+                <div class="col-md-1 hidden-sm-down"></div>
+                <div class="col-md-3 col-sm-4 col-xs-4">
+                  <a href="mailto:12sarahmiller@gmail.com">
+                    <img src="grey-email-icon.png" class="icon"  /> <br>
+                    <p class="caption"> Email </p>
+                  </a>
+                </div>
               </div>
-              <div class="col-md-6">
-                <a href="https://www.linkedin.com/in/sarah-miller-31003082"> Find me on LinkedIn! </a>
-              </div>
+              <hr>
               <div class="row">
-                <h2> Projects </h2>
+                  <center><h1 class="display-5"> Projects </h1></center>
               </div>
               <div class="row row-eq-height">
                 <div class="col-md-4">
