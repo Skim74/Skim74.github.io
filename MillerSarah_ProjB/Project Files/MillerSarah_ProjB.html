@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>3D World</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      /* make the body fill the window */
+      html, body {
+        background-color: rgba(86,61,124,.15);
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      /* make any canvas fill its container */
+      canvas {
+        width: 100%;
+        height: 83%;
+      }
+    </style>
+  </head>
+
+  <body onload="main()" onresize="resizeCanvas(canvas,gl)">
+    <div style="display: inline-block; width:100%; height:17%; vertical-align: top; overflow: scroll; font-size:small;">
+    <h2>USER INSTRUCTIONS</h2>
+      Use arrow keys to navigate the scene, and
+      Use WASD to pivot camera.<br>
+      Use "p" to add petals to flower, and "o" to subtract petals. <br>
+      Press the Space Bar to start or stop the star spinning. Click and drag to spin the star (whether it's moving or not).<br>
+      Control the orthographic frustum parameters using a whole lot of buttons! 1&2 for Left, 3&4 for Right, 5&6 for Bottom, 7&8 for Top, R&T for Near, Y&U for Far.
+      <br><br>
+    </div>
+    <canvas id="webgl" height="800" width="1200">
+    Please use a browser that supports "canvas"
+    </canvas><br>
+
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/cuon-matrix-quat.js"></script>
+    <script src="MillerSarah_ProjB.js"></script>
+  </body>
+</html>
