@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 * {
   padding-bottom: 0;
 }
@@ -29,11 +31,16 @@ img {
 body {
   background-color: #eee;
   padding-bottom: 0;
+  font-family: 'Open Sans';
+  transition: background .25s linear;
+   -webkit-transition: background .25s linear;
+   -moz-transition: background .25s linear;
 }
 
 h3 {
   margin-top: 2rem;
 }
+
 hr {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -78,4 +85,31 @@ hr {
     margin: 0 auto -1.8rem;
     z-index: 999;
 
+}
+
+.unclicked {
+  margin-top: -5.5rem;
+  margin-bottom: 4rem;
+  padding: 1rem;
+}
+
+button {
+  border-radius: 10%;
+  padding:0.5rem;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+.quotebox {
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 15px 0 3px rgba(255, 255, 255, 0.3) inset;
+}
+
+h4 > a {
+  color: #333;
+  text-align: right;
 }
