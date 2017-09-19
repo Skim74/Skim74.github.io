@@ -9752,45 +9752,9 @@ var ReactDOM = __webpack_require__(98);
 var QuoteBox = __webpack_require__(184);
 
 ReactDOM.render(React.createElement(QuoteBox, null), document.getElementById('quote-box'));
+ReactDOM.render(React.createElement(QuoteBox, null), document.getElementById('quote-box1'));
 
-const url = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
-
-document.addEventListener("DOMContentLoaded", function (event) {
-  document.getElementById("get-quote").addEventListener("click", noJQueryQuote);
-});
-
-function noJQueryQuote() {
-  let link;
-  const request = new XMLHttpRequest();
-
-  request.open('GET', `${url}&t=${new Date().getTime()}`, true);
-
-  request.onload = function () {
-    if (this.status >= 200 && this.status < 400) {
-      var data = JSON.parse(this.response);
-      if (data[0].content.length > 140) {
-        noJQueryQuote();
-      } else {
-        if (data[0].custom_meta) {
-          let longlink = data[0].custom_meta.Source;
-          link = longlink.substr(0, longlink.indexOf('>') + 1);
-        } else {
-          link = `<a href="${data[0].link}">`;
-        }
-        document.getElementById("quote-text").innerHTML = data[0].content;
-        document.getElementById("quote-author").innerHTML = `${link} &mdash; ${data[0].title} </a>`;
-        document.getElementById("get-quote").innerHTML = 'New Quote';
-        document.body.style.background = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-      }
-    } else {
-      console.log('ruh rho');
-    }
-  };
-  request.onerror = function () {
-    // There was a connection error of some sort
-  };
-  request.send();
-}
+ReactDOM.render(React.createElement(QuoteBox, null), document.getElementById('quote-box2'));
 
 /***/ }),
 /* 83 */
@@ -22424,17 +22388,84 @@ module.exports = ReactDOMInvalidARIAHook;
 
 var React = __webpack_require__(49);
 
-var QuoteBox = React.createClass({
-    displayName: 'QuoteBox',
+class QuoteBox extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      author: '',
+      quote: '',
+      quoteLink: '',
+      buttonText: 'Generate Quote'
+    };
+  }
 
-    render: function () {
-        return React.createElement(
-            'div',
+  getQuote() {
+    const that = this;
+    const url = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
+    const request = new XMLHttpRequest();
+
+    request.open('GET', `${url}&t=${new Date().getTime()}`, true);
+
+    request.onload = function () {
+      if (this.status >= 200 && this.status < 400) {
+        const data = JSON.parse(this.response);
+        if (data[0].content.length > 140) {
+          that.getQuote();
+        } else {
+
+          const link = data[0].custom_meta ? data[0].custom_meta.Source.split(/"/)[1] : data[0].link;
+
+          that.setState({
+            author: `— ${data[0].title}`,
+            quote: data[0].content,
+            quoteLink: link,
+            buttonText: 'New Quote'
+          });
+        }
+      } else {
+        console.log('ruh rho');
+      }
+    };
+    request.send();
+  }
+  componentWillUpdate(nextProps, nextState) {
+    document.body.style.background = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  }
+
+  render() {
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(
+        'div',
+        { className: 'row' },
+        React.createElement(
+          'div',
+          { className: 'col-lg-12 quotebox' },
+          React.createElement(
+            'center',
             null,
-            'Hello, haters!'
-        );
-    }
-});
+            React.createElement('h3', { dangerouslySetInnerHTML: { __html: this.state.quote } }),
+            React.createElement(
+              'h4',
+              null,
+              React.createElement(
+                'a',
+                { href: this.state.quoteLink },
+                this.state.author
+              )
+            ),
+            React.createElement(
+              'button',
+              { onClick: this.getQuote.bind(this), className: 'unclicked' },
+              this.state.buttonText
+            )
+          )
+        )
+      )
+    );
+  }
+}
 
 module.exports = QuoteBox;
 
