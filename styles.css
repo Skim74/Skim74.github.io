@@ -88,7 +88,7 @@ hr {
 }
 
 .unclicked {
-  padding: 1rem;
+
 }
 
 button {
@@ -97,6 +97,7 @@ button {
   padding:0.5rem;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
+  margin-top: 0.5rem;
 }
 
 button:hover {
@@ -106,6 +107,7 @@ button:hover {
 .quotebox {
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 15px 0 3px rgba(255, 255, 255, 0.3) inset;
+  padding-top: 0;
 }
 
 h4 > a {
